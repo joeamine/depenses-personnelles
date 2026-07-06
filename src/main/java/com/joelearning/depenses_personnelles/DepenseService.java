@@ -38,4 +38,15 @@ public class DepenseService {
         DR.deleteById(id);
         return "le depense de id " +id+" est supprimer";
     }
+    //methode somme par categorie "avant spring data jpa"
+    public double sommeParCat(String catg){
+        double somme_cat=0;
+        for (Depense d : DR.findAll()){
+            if (d.getCategorie().equals(catg)){
+                somme_cat+=d.getMontant();
+            }
+
+        }
+        return somme_cat;
+    }
 }
