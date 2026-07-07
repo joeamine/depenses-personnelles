@@ -36,4 +36,18 @@ public class DepenseController {
     public String supprimer(@PathVariable Integer id){
         return DS.supprimerDepense(id);
     }
+    //********************ENDPOINT/statistique************
+    @GetMapping("/total/categorie/{catg}")
+    public double totalParCtegorie(@PathVariable String catg){
+        return DS.sommeParCat(catg);
+    }
+    @GetMapping("/total/mois/{m}")
+    public double totalDepenseParMois(@PathVariable int m){
+        return DS.sommeParMois(m);
+    }
+    @GetMapping("/total/year/{y}/mois/{m}")
+    public double totalDepenseParMoisEtAns(@PathVariable int m,@PathVariable int y){
+        return DS.sommeParMoisEtAns(m,y);
+    }
+
 }
